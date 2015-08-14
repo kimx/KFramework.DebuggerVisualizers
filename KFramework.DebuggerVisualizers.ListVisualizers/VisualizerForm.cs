@@ -30,7 +30,6 @@ namespace KFramework.DebuggerVisualizers.ListVisualizers
             dt = ListToDataTable((IList)list);
             gvProperties.DataSource = dt;
 
-
         }
 
         /// <summary>

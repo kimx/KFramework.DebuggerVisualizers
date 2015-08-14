@@ -17,16 +17,18 @@ namespace KFramework.DebuggerVisualizers.ListVisualizers
 {
     public class ListVisualizer : DialogDebuggerVisualizer
     {
-        protected override void Show(
-    IDialogVisualizerService windowService,
-    IVisualizerObjectProvider objectProvider)
+        protected override void Show(IDialogVisualizerService windowService
+            ,IVisualizerObjectProvider objectProvider)
         {
-            VisualizerForm vf = new VisualizerForm(
-               objectProvider.GetObject());
+            var list = objectProvider.GetObject();
+            VisualizerForm vf = new VisualizerForm(list);
             vf.ShowDialog();
-            
         }
 
+        /// <summary>
+        /// for 測試用
+        /// </summary>
+        /// <param name="objectToVisualize"></param>
         public static void TestShowVisualizer(object objectToVisualize)
         {
             VisualizerDevelopmentHost host =

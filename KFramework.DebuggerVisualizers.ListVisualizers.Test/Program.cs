@@ -13,6 +13,8 @@ namespace KFramework.DebuggerVisualizers.ListVisualizers.Test
             SelectColumnInfo item = new SelectColumnInfo();
             item.ColumnName = "Kim Column";
             item.ColumnTitle = "Kim Title";
+            item.ID = 1;
+            item.CreateDate = DateTime.Now;
             List<SelectColumnInfo> list = Enumerable.Repeat(item, 100).ToList();
             ListVisualizer.TestShowVisualizer(list);
             Console.Read();
@@ -26,6 +28,7 @@ namespace KFramework.DebuggerVisualizers.ListVisualizers.Test
     public class SelectColumnInfo
     {
         public int ID { get; set; }
+        public DateTime CreateDate { get; set; }
         public string ColumnName { get; set; }
 
         public string ColumnTitle { get; set; }
