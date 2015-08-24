@@ -52,7 +52,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="H:\KFramework.DebuggerVisualizers\KFramework.DebuggerVisualizers.ListVisualizers\KFramework.DebuggerVisualizers.ListVisualizers.csproj">
+    <ProjectReference Include="..\KFramework.DebuggerVisualizers.ListVisualizers\KFramework.DebuggerVisualizers.ListVisualizers.csproj">
       <Project>{3cb2a7d4-cca4-45c9-bdca-5181e50e48a0}</Project>
       <Name>KFramework.DebuggerVisualizers.ListVisualizers</Name>
     </ProjectReference>

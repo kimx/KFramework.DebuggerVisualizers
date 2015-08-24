@@ -16,7 +16,7 @@ namespace KFramework.DebuggerVisualizers.ListVisualizers.Test
             item.ID = 1;
             item.CreateDate = DateTime.Now;
             List<SelectColumnInfo> list = Enumerable.Repeat(item, 100).ToList();
-            ListVisualizer.TestShowVisualizer(list);
+       //     ListVisualizer.TestShowVisualizer(list);
             Console.Read();
         }
     }

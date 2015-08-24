@@ -5,6 +5,7 @@ using System.Text;
 using Microsoft.VisualStudio.DebuggerVisualizers;
 using System.Collections;
 using KFramework.DebuggerVisualizers.ListVisualizers;
+using System.Diagnostics;
 
 //reference:https://vsdatawatchers.codeplex.com/
 //after build copy your dll to C:\Users\user\Documents\Visual Studio 2015\Visualizers
@@ -19,6 +20,20 @@ namespace KFramework.DebuggerVisualizers.ListVisualizers
     {
         protected override void Show(IDialogVisualizerService windowService
             ,IVisualizerObjectProvider objectProvider)
+        {
+            try
+            {
+                ShowForm(objectProvider);
+            }
+            catch (Exception)
+            {
+                //第一次展開，都會出現錯誤"The function evaluation requires all threads to run."，再展第二次才會成功
+                //目前不知是什麼原因，所以先用在catch這兒再呼叫一次
+                ShowForm(objectProvider);
+            }
+        }
+
+        private static void ShowForm(IVisualizerObjectProvider objectProvider)
         {
             var list = objectProvider.GetObject();
             VisualizerForm vf = new VisualizerForm(list);
