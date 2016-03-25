@@ -10,13 +10,13 @@ namespace KFramework.DebuggerVisualizers.ListVisualizers.Test
     {
         static void Main(string[] args)
         {
-            SelectColumnInfo item = new SelectColumnInfo();
+            ScqftrDto item = new ScqftrDto();
             item.ColumnName = "Kim Column";
             item.ColumnTitle = "Kim Title";
             item.ID = 1;
             item.CreateDate = DateTime.Now;
-            List<SelectColumnInfo> list = Enumerable.Repeat(item, 100).ToList();
-       //     ListVisualizer.TestShowVisualizer(list);
+            List<ScqftrDto> list = Enumerable.Repeat(item, 100).ToList();
+            ListVisualizer.TestShowVisualizer(list);
             Console.Read();
         }
     }
@@ -39,4 +39,46 @@ namespace KFramework.DebuggerVisualizers.ListVisualizers.Test
   
         public bool Selected { get; set; }
     }
+
+    //[Serializable]
+    public partial class ScqftrDto
+    {
+        public int ID { get; set; }
+        public DateTime CreateDate { get; set; }
+        public string ColumnName { get; set; }
+
+        public string ColumnTitle { get; set; }
+
+        public int OrderNum { get; set; }
+
+        public string ColumnTypeString { get; set; }
+
+        public bool Selected { get; set; }
+        public int? SCQCOL_ID { get; set; }
+
+        public OperatorTypes OPTYPE { get; set; }
+
+        public int ORDERNUM { get; set; }
+        public string DEFVAL { get; set; }
+        public string DEFVAL2 { get; set; }
+        //EXTEN
+        public string COL_NAME { get; set; }
+        public int SCQTMP_ID { get; set; }
+
+    }
+
+    public enum OperatorTypes
+    {
+        Equals = 1,
+        Contains = 2,
+        StartsWith = 3,
+        EndsWith = 4,
+        Greater = 5,
+        Less = 6,
+        GreaterEquals = 7,
+        LessEquals = 8,
+        Between = 99,
+        Range = 100,
+    }
+
 }
